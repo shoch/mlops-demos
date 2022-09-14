@@ -1,0 +1,4 @@
+numpy~=1.23.3
+scikit-surprise==1.1.1
+jupyterlab~=3.4.7
+mlflow~=1.28.0
