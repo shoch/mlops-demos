@@ -1,0 +1,3 @@
+[submodule "wandb/tinytorchtrainer"]
+	path = wandb/tinytorchtrainer
+	url = https://github.com/paulgavrikov/tinytorchtrainer/
