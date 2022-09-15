@@ -1,0 +1,4 @@
+[core]
+    remote = mylocalremote
+['remote "mylocalremote"']
+    url = C:\Users\sebih\Documents\data\ml-ops-demo
