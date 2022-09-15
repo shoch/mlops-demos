@@ -5,7 +5,31 @@ simple demos for different mlops tools
 # MLFlow
 [MLflow](https://mlflow.org/) an open source platform for the machine learning lifecycle.
 
-[Demo](./mlflow/): Experiment Tracking and Mdoel Registry.
+[Demo](./mlflow/): Experiment Tracking and Model Registry.
+[More examples.](https://github.com/mlflow/mlflow/tree/master/examples)
+
+Experiment Tracking:
+
+```python
+# Manuel logging with mlflow
+
+# Start a run
+mlflow.start_run()
+# Log an hyper-param
+mlflow.log_param()
+# Log a metric
+mlflow.log_metric()
+```
+
+```python
+# Automatic logging with mlflow
+
+mlflow.tensorflow.autolog()
+
+with mlflow.start_run():
+  ...
+```
+
 
 ### Prerequisites
 * Load Data
