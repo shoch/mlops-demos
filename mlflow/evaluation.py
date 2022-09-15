@@ -1,6 +1,6 @@
-from tabnanny import verbose
-from surprise import accuracy
 from collections import defaultdict
+
+from surprise import accuracy
 
 
 class Evaluation:
@@ -9,11 +9,11 @@ class Evaluation:
 
     def evaluate(self, predictions):
         # compute RMSE
-        rmse = accuracy.rmse(predictions,verbose=False)
+        rmse = accuracy.rmse(predictions, verbose=False)
         precisions, recalls = precision_recall_at_k(predictions, k=10)
         # Precision and recall can then be averaged over all users
-        precision_10 =  sum(prec for prec in precisions.values()) / len(precisions)
-        recall_10 = (sum(rec for rec in recalls.values()) / len(recalls))
+        precision_10 = sum(prec for prec in precisions.values()) / len(precisions)
+        recall_10 = sum(rec for rec in recalls.values()) / len(recalls)
         return {
             "rmse": rmse,
             "precision@10": precision_10,
@@ -21,7 +21,7 @@ class Evaluation:
         }
 
 
-### from https://surprise.readthedocs.io/en/stable/FAQ.html?highlight=recall#how-to-compute-precision-k-and-recall-k
+# from https://surprise.readthedocs.io/en/stable/FAQ.html?highlight=recall#how-to-compute-precision-k-and-recall-k
 def precision_recall_at_k(predictions, k=10, threshold=3.5):
     """Return precision and recall at k metrics for each user"""
 
@@ -44,10 +44,7 @@ def precision_recall_at_k(predictions, k=10, threshold=3.5):
         n_rec_k = sum((est >= threshold) for (est, _) in user_ratings[:k])
 
         # Number of relevant and recommended items in top k
-        n_rel_and_rec_k = sum(
-            ((true_r >= threshold) and (est >= threshold))
-            for (est, true_r) in user_ratings[:k]
-        )
+        n_rel_and_rec_k = sum(((true_r >= threshold) and (est >= threshold)) for (est, true_r) in user_ratings[:k])
 
         # Precision@K: Proportion of recommended items that are relevant
         # When n_rec_k is 0, Precision is undefined. We here set it to 0.

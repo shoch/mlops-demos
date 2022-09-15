@@ -1,0 +1,6 @@
+[flake8]
+exclude =
+    .git,
+    tests
+max-line-length = 120
+ignore = D202,W503,E203 # conflicts with black
