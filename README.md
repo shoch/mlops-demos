@@ -2,6 +2,22 @@
 
 simple demos for different mlops tools
 
+
+# DVC
+
+[DVC docu](https://dvc.org/)
+
+Dataversioning
+
+```
+dvc add ...
+dvc remote add -d myremote ...
+
+dvc push
+
+dvc pull
+```
+
 # MLFlow
 [MLflow](https://mlflow.org/) an open source platform for the machine learning lifecycle.
 
@@ -43,11 +59,13 @@ with mlflow.start_run():
   * pip install -r requirements-mlflow.txt
 * MLflow-Server
   * Model-Registry needs SQL backend
-  * mlflow server --backend-store-uri sqlite:///C:\Users\sebih\Documents\mlflow-demo\data\mlflow-database\mlruns.db --default-artifact-root file///C:\Users\sebih\Documents\mlflow-demo\data\mlflow-runs
+  * mlflow server --backend-store-uri sqlite:///C:\Users\sebih\Documents\mlops-demos\data\mlflow-database\mlruns.db --default-artifact-root file///C:\Users\sebih\Documents\mlops-demos\data\mlflow-runs
 
 # Wheights& Biases
 [Wheights& Biases](https://wandb.ai/site) Experiment Tracking
 [Demo](wandb)
+
+
 
 
 # Contribution
