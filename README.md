@@ -2,29 +2,22 @@
 
 simple demos for different mlops tools
 
+* [DVC](dvc)
+* [MLFlow](mlflow/README.md)
+* [Weights&Biases](wandb)
 
-# DVC
 
-[DVC docu](https://dvc.org/)
+## MLFlow
+### Experiment Tracking:
 
-Dataversioning
+```python
+# Automatic logging with mlflow
 
+mlflow.tensorflow.autolog()
+
+with mlflow.start_run():
+  ...
 ```
-dvc add ...
-dvc remote add -d myremote ...
-
-dvc push
-
-dvc pull
-```
-
-# MLFlow
-[MLflow](https://mlflow.org/) an open source platform for the machine learning lifecycle.
-
-[Demo](./mlflow/): Experiment Tracking and Model Registry.
-[More examples.](https://github.com/mlflow/mlflow/tree/master/examples)
-
-Experiment Tracking:
 
 ```python
 # Manuel logging with mlflow
@@ -37,33 +30,7 @@ mlflow.log_param()
 mlflow.log_metric()
 ```
 
-```python
-# Automatic logging with mlflow
 
-mlflow.tensorflow.autolog()
-
-with mlflow.start_run():
-  ...
-```
-
-
-### Prerequisites
-* Load Data
-  * Download movielens 100k from https://grouplens.org/datasets/movielens/100k/
-  * unpack to ./data/ml-100k
-
-### Enviorment
-* MLflow
-  * conda create --name mlflow-demo python=3.9
-  * conda activate mlflow-demo
-  * pip install -r requirements-mlflow.txt
-* MLflow-Server
-  * Model-Registry needs SQL backend
-  * mlflow server --backend-store-uri sqlite:///C:\Users\sebih\Documents\mlops-demos\data\mlflow-database\mlruns.db --default-artifact-root file///C:\Users\sebih\Documents\mlops-demos\data\mlflow-runs
-
-# Wheights& Biases
-[Wheights& Biases](https://wandb.ai/site) Experiment Tracking
-[Demo](wandb)
 
 
 
@@ -74,9 +41,8 @@ This project provides pre-commit hooks for developers. Run 'pre-commit install' 
 * pre-commit run --all-files
 
 ## Testing
-* todo
+
 * pytest don't can handle marks on fixtures
 * cd [project]
 * pytest -m "not integtest"
 * pytest -m integtest
-* pytest -m "not slow"
